@@ -1,0 +1,85 @@
+package com.tienda.online.controllers;
+
+
+import com.tienda.online.dto.products.OfferStatusRequest;
+import com.tienda.online.dto.products.ProductAdminResponse;
+import com.tienda.online.dto.products.ProductRequest;
+import com.tienda.online.dto.products.ProductResponse;
+import com.tienda.online.services.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/products")
+public class ProductController {
+
+    private final ProductService productService;
+
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> getAllProducts() {
+        return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
+    }
+
+    @GetMapping("/admin")
+    public ResponseEntity<List<ProductAdminResponse>> getAllProductsToAdmin() {
+        return new ResponseEntity<>(productService.getAllProductsToAdmin(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id){
+        return new ResponseEntity<>(productService.getProductById(id),  HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/admin")
+    public ResponseEntity<ProductAdminResponse> getProductByIdToAdmin(@PathVariable Long id){
+        return new ResponseEntity<>(productService.getProductByIdToAdmin(id),  HttpStatus.OK);
+    }
+
+    @GetMapping("/availability")
+    public ResponseEntity<List<ProductResponse>> getAvailableProducts(){
+        return new ResponseEntity<>(productService.getAvailableProducts(),  HttpStatus.OK);
+    }
+
+    @GetMapping("/low-stock")
+    public ResponseEntity<List<ProductAdminResponse>> findProductsWithLowStock(){
+        return new ResponseEntity<>(productService.findProductsWithLowStock(),  HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<ProductResponse>> searchProducts(@RequestParam String name) {
+        return ResponseEntity.ok(productService.searchByNameOrdered(name));
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createProduct(@RequestBody ProductRequest product){
+        productService.createProduct(product);
+        return new ResponseEntity<>("Product created",  HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductAdminResponse> updateProduct(@PathVariable Long id, @RequestBody ProductRequest product){
+        return new ResponseEntity<>(productService.updateProduct(id, product),  HttpStatus.OK);
+    }
+
+    @PatchMapping("/{idProduct}/toggle-offer")
+    public ResponseEntity<ProductAdminResponse> updateOfferStatus(
+            @PathVariable Long idProduct, @RequestBody(required = false) OfferStatusRequest product){
+        return new ResponseEntity<>(productService.updateOfferStatus(idProduct, product), HttpStatus.OK);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+        return new ResponseEntity<>("Product removed", HttpStatus.OK);
+    }
+
+}

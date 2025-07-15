@@ -1,0 +1,40 @@
+services:
+  mysql8:
+    container_name: mysql8
+    image: mysql:8
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: tienda_online
+    volumes:
+      - data-mysql:/var/lib/mysql
+    restart: always
+    networks:
+      - tiendaOnline
+
+  tienda-online:
+    container_name: tienda-online
+    image: tienda-online
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./.env
+    networks:
+      - tiendaOnline
+    depends_on:
+      - mysql8
+    restart: always
+
+volumes:
+  data-mysql:
+    name: data-mysql
+    external: true
+
+networks:
+  tiendaOnline:
+    name: tiendaOnline
+    external: true
