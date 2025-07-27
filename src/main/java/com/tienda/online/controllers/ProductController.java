@@ -59,9 +59,9 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createProduct(@RequestBody ProductRequest product){
-        productService.createProduct(product);
-        return new ResponseEntity<>("Product created",  HttpStatus.CREATED);
+    public ResponseEntity<ProductAdminResponse> createProduct(@RequestBody ProductRequest product){
+        ProductAdminResponse response = productService.createProduct(product);
+        return new ResponseEntity<>(response,  HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

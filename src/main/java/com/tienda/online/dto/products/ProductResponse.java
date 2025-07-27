@@ -26,6 +26,21 @@ public class ProductResponse {
 
     private List<CategoryResponse> categories;
 
+    public ProductResponse() {
+    }
+
+    public ProductResponse(Long id, String name, String description, BigDecimal price, boolean discount, BigDecimal offerPrice, int stock, BrandResponse brand, List<CategoryResponse> categories) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.discount = discount;
+        this.offerPrice = offerPrice;
+        this.stock = stock;
+        this.brand = brand;
+        this.categories = categories;
+    }
+
     public Long getId() {
         return id;
     }

@@ -24,7 +24,7 @@ public interface ProductService {
     /// ----------  Methods POST  ----------
     /// ------------------------------------
 
-    void createProduct(ProductRequest product);
+    ProductAdminResponse createProduct(ProductRequest product);
 
     ///------------------------------------
     ///---------  Methods UPDATE  ---------

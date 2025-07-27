@@ -121,7 +121,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public void createProduct(ProductRequest request) {
+    public ProductAdminResponse createProduct(ProductRequest request) {
         Brand brand = brandRepository.findById(request.getBrandId())
                 .orElseThrow(() -> new ObjectNotFoundException("Brand with ID " + request.getBrandId() + " does not exist"));
 
@@ -133,7 +133,7 @@ public class ProductServiceImpl implements ProductService {
         updateProductFromRequest(product, request, brand, categories, suppliers);
         product.setStock(request.getStock());
 
-        productRepository.save(product);
+        return getProductAdminResponse(productRepository.save(product));
     }
 
     @Override

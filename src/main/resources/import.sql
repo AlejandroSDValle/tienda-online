@@ -170,69 +170,69 @@ INSERT INTO users (confirmed, email, username, name, password, role_id) VALUES (
 ----------------------------------------------------------------------------------------------
 ------------------------------------- CREACIÓN DE MARCAS -------------------------------------
 ----------------------------------------------------------------------------------------------
-INSERT INTO brands (id, name) VALUES (1, 'Sony');
-INSERT INTO brands (id, name) VALUES (2, 'Samsung');
-INSERT INTO brands (id, name) VALUES (3, 'LG');
-INSERT INTO brands (id, name) VALUES (4, 'Apple');
-INSERT INTO brands (id, name) VALUES (5, 'Lenovo');
+INSERT INTO brands (id, name) VALUES (101, 'Sony');
+INSERT INTO brands (id, name) VALUES (102, 'Samsung');
+INSERT INTO brands (id, name) VALUES (103, 'LG');
+INSERT INTO brands (id, name) VALUES (104, 'Apple');
+INSERT INTO brands (id, name) VALUES (105, 'Lenovo');
 
 --------------------------------------------------------------------------------------------------
 ------------------------------------- CREACIÓN DE CATEGORIAS -------------------------------------
 --------------------------------------------------------------------------------------------------
-INSERT INTO categories (id, name) VALUES (1, 'Electrónica');
-INSERT INTO categories (id, name) VALUES (2, 'Computación');
-INSERT INTO categories (id, name) VALUES (3, 'Accesorios');
-INSERT INTO categories (id, name) VALUES (4, 'Hogar');
-INSERT INTO categories (id, name) VALUES (5, 'Juguetes');
+INSERT INTO categories (id, name) VALUES (101, 'Electrónica');
+INSERT INTO categories (id, name) VALUES (102, 'Computación');
+INSERT INTO categories (id, name) VALUES (103, 'Accesorios');
+INSERT INTO categories (id, name) VALUES (104, 'Hogar');
+INSERT INTO categories (id, name) VALUES (105, 'Juguetes');
 
 
 ---------------------------------------------------------------------------------------------------
 ------------------------------------- CREACIÓN DE PROVEEDORES -------------------------------------
 ---------------------------------------------------------------------------------------------------
-INSERT INTO suppliers (id, name, phone, email) VALUES (1, 'Proveedor Uno', '5551234567', 'contacto1@proveedor.com');
-INSERT INTO suppliers (id, name, phone, email) VALUES (2, 'Proveedor Dos', '5552345678', 'contacto2@proveedor.com');
-INSERT INTO suppliers (id, name, phone, email) VALUES (3, 'Proveedor Tres', '5553456789', 'contacto3@proveedor.com');
-INSERT INTO suppliers (id, name, phone, email) VALUES (4, 'Proveedor Cuatro', '5554567890', 'contacto4@proveedor.com');
-INSERT INTO suppliers (id, name, phone, email) VALUES (5, 'Proveedor Cinco', '5555678901', 'contacto5@proveedor.com');
+INSERT INTO suppliers (id, name, phone, email) VALUES (101, 'Proveedor Uno', '5551234567', 'contacto1@proveedor.com');
+INSERT INTO suppliers (id, name, phone, email) VALUES (102, 'Proveedor Dos', '5552345678', 'contacto2@proveedor.com');
+INSERT INTO suppliers (id, name, phone, email) VALUES (103, 'Proveedor Tres', '5553456789', 'contacto3@proveedor.com');
+INSERT INTO suppliers (id, name, phone, email) VALUES (104, 'Proveedor Cuatro', '5554567890', 'contacto4@proveedor.com');
+INSERT INTO suppliers (id, name, phone, email) VALUES (105, 'Proveedor Cinco', '5555678901', 'contacto5@proveedor.com');
 
 
 -------------------------------------------------------------------------------------------------
 ------------------------------------- CREACIÓN DE PRODUCTOS -------------------------------------
 -------------------------------------------------------------------------------------------------
-INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (1, 1, 'Audífonos Inalámbricos', 'Audífonos con cancelación de ruido', 1500.00, 1200.00, true, 1300.00, 125, '2024-07-01 10:00:00');
-INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (2, 2, 'Smart TV 50"', 'Televisión 4K UHD', 8000.00, 6000.00, true, 7500.00, 110, '2024-07-02 12:00:00');
-INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (3, 3, 'Laptop Gamer', '16GB RAM, RTX 3050', 20000.00, 17000.00, false, NULL, 115, '2024-07-03 14:00:00');
-INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (4, 4, 'iPhone 14', '128GB, Midnight', 23000.00, 20000.00, true, 21000.00, 118, '2024-07-04 16:00:00');
-INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (5, 5, 'Tablet Lenovo', '10.1" HD, 64GB', 5000.00, 4000.00, false, NULL, 115, '2024-07-05 09:00:00');
+INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (101, 101, 'Audífonos Inalámbricos', 'Audífonos con cancelación de ruido', 1500.00, 1200.00, true, 1300.00, 125, '2024-07-01 10:00:00');
+INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (102, 102, 'Smart TV 50"', 'Televisión 4K UHD', 8000.00, 6000.00, true, 7500.00, 110, '2024-07-02 12:00:00');
+INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (103, 103, 'Laptop Gamer', '16GB RAM, RTX 3050', 20000.00, 17000.00, false, NULL, 115, '2024-07-03 14:00:00');
+INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (104, 104, 'iPhone 14', '128GB, Midnight', 23000.00, 20000.00, true, 21000.00, 118, '2024-07-04 16:00:00');
+INSERT INTO products (id, brand_id, name, description, price, purchase_price, discount, offer_price, stock, created_at) VALUES (105, 105, 'Tablet Lenovo', '10.1" HD, 64GB', 5000.00, 4000.00, false, NULL, 115, '2024-07-05 09:00:00');
 
 
 -----------------------------------------------------------------------------------------------------------
 ------------------------------------- CREACIÓN DE PRODUCTS_CATEGORIES -------------------------------------
 -----------------------------------------------------------------------------------------------------------
-INSERT INTO products_categories (product_id, category_id) VALUES (1, 1);
-INSERT INTO products_categories (product_id, category_id) VALUES (1, 3);;
-INSERT INTO products_categories (product_id, category_id) VALUES (2, 1);
-INSERT INTO products_categories (product_id, category_id) VALUES (2, 4);
-INSERT INTO products_categories (product_id, category_id) VALUES (3, 2);
-INSERT INTO products_categories (product_id, category_id) VALUES (4, 1);
-INSERT INTO products_categories (product_id, category_id) VALUES (4, 2);
-INSERT INTO products_categories (product_id, category_id) VALUES (5, 2);
-INSERT INTO products_categories (product_id, category_id) VALUES (5, 4);
-INSERT INTO products_categories (product_id, category_id) VALUES (5, 3);
+INSERT INTO products_categories (product_id, category_id) VALUES (101, 101);
+INSERT INTO products_categories (product_id, category_id) VALUES (101, 103);;
+INSERT INTO products_categories (product_id, category_id) VALUES (102, 101);
+INSERT INTO products_categories (product_id, category_id) VALUES (102, 104);
+INSERT INTO products_categories (product_id, category_id) VALUES (103, 102);
+INSERT INTO products_categories (product_id, category_id) VALUES (104, 101);
+INSERT INTO products_categories (product_id, category_id) VALUES (104, 102);
+INSERT INTO products_categories (product_id, category_id) VALUES (105, 102);
+INSERT INTO products_categories (product_id, category_id) VALUES (105, 104);
+INSERT INTO products_categories (product_id, category_id) VALUES (105, 103);
 
 ----------------------------------------------------------------------------------------------------------
 ------------------------------------- CREACIÓN DE PRODUCTS_SUPPLIERS -------------------------------------
 ----------------------------------------------------------------------------------------------------------
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (1, 1);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (1, 2);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (2, 2);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (2, 3);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (3, 3);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (3, 4);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (4, 1);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (4, 5);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (5, 4);
-INSERT INTO products_suppliers (product_id, supplier_id) VALUES (5, 5);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (101, 101);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (101, 102);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (102, 102);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (102, 103);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (103, 103);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (103, 104);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (104, 101);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (104, 105);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (105, 104);
+INSERT INTO products_suppliers (product_id, supplier_id) VALUES (105, 105);
 
 ----------------------------------------------------------------------------------------------------------
 ------------------------------------- CREACIÓN DE ORDERS -------------------------------------
@@ -262,37 +262,37 @@ INSERT INTO orders (client_id, employee_id, created_at, status) VALUES (NULL, 5,
 
 
 -- Para los pedidos 1 al 15
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (1, 1, 2);
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (1, 2, 1);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (1, 101, 2);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (1, 102, 1);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (2, 3, 5);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (2, 103, 5);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (3, 4, 3);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (3, 104, 3);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (4, 5, 1);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (4, 105, 1);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (5, 2, 4);
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (5, 1, 2);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (5, 102, 4);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (5, 101, 2);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (6, 1, 3);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (6, 101, 3);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (7, 4, 2);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (7, 104, 2);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (8, 4, 1);
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (8, 2, 2);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (8, 104, 1);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (8, 102, 2);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (9, 5, 4);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (9, 105, 4);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (10, 5, 1);
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (10, 1, 2);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (10, 105, 1);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (10, 101, 2);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (11, 3, 5);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (11, 103, 5);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (12, 2, 1);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (12, 102, 1);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (13, 5, 3);
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (13, 3, 2);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (13, 105, 3);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (13, 103, 2);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (14, 3, 2);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (14, 103, 2);
 
-INSERT INTO order_items (order_id, product_id, quantity) VALUES (15, 4, 4);
+INSERT INTO order_items (order_id, product_id, quantity) VALUES (15, 104, 4);
