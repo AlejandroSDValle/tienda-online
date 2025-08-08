@@ -6,7 +6,7 @@ import com.msvc.order.dto.order.OrderResponse;
 import java.util.List;
 
 public interface OrderService {
-    List<OrderResponse> getUserOrders();
+    List<OrderResponse> getUserOrders(Long opt);
 
 //    List<OrderResponse> getUserOrdersByStatus(OrderStatus status);
 //

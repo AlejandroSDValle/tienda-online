@@ -1,3 +1,23 @@
+resilience4j:
+  circuitbreaker:
+    configs:
+      defecto:
+        sliding-window-size: 6
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 20s
+        permitted-number-of-calls-in-half-open-state: 4
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 3s
+    instances:
+      products:
+        base-config: defecto
+  timelimiter:
+    configs:
+      defecto:
+        timeout-duration: 4s
+    instances:
+      products:
+        base-config: defecto
 
 server:
   port: 8090
@@ -14,6 +34,10 @@ spring:
         predicates:
         - Path=/api/v1/products/**
         filters:
+        - name: CircuitBreaker
+          args:
+            name: products
+            statusCodes: 500
         - StripPrefix=2
       - id: order-service
         uri: lb://order-service

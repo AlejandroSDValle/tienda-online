@@ -1,8 +1,8 @@
 package com.msv.product.services.impl;
 
+import com.libs.msvc.commons.dto.product.ProductResponse;
 import com.msv.product.dto.product.ProductAdminResponse;
 import com.msv.product.dto.product.ProductRequest;
-import com.msv.product.dto.product.ProductResponse;
 import com.msv.product.entities.Product;
 import com.msv.product.exception.ObjectNotFoundException;
 import com.msv.product.repository.ProductRepository;

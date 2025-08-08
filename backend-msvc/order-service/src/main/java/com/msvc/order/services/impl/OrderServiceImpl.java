@@ -1,10 +1,10 @@
 package com.msvc.order.services.impl;
 
+import com.libs.msvc.commons.dto.product.ProductResponse;
 import com.msvc.order.client.ProductFeignClient;
 import com.msvc.order.dto.order.CreateOrderRequest;
 import com.msvc.order.dto.order.OrderItem;
 import com.msvc.order.dto.order.OrderResponse;
-import com.msvc.order.dto.product.ProductResponse;
 import com.msvc.order.entities.Order;
 import com.msvc.order.entities.OrderItems;
 import com.msvc.order.enums.OrderStatus;
@@ -35,9 +35,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<OrderResponse> getUserOrders() {
+    public List<OrderResponse> getUserOrders(Long opt) {
         List<Order> orders = orderRepository.findAll();
-        Map<Long, ProductResponse> products = client.getAllProducts().stream()
+        Map<Long, ProductResponse> products = client.getAllProductsWithError(opt).stream()
                 .collect(Collectors.toMap(ProductResponse::getId, p->p));
         return orders.stream().map(order -> getOrderResponse(order, products)).toList();
     }

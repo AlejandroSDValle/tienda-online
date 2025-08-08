@@ -1,6 +1,6 @@
 package com.msv.product.exception;
 
-import com.msv.product.dto.ApiResponse;
+import com.libs.msvc.commons.dto.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

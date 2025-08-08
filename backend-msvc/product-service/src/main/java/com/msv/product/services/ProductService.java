@@ -1,8 +1,8 @@
 package com.msv.product.services;
 
+import com.libs.msvc.commons.dto.product.ProductResponse;
 import com.msv.product.dto.product.ProductAdminResponse;
 import com.msv.product.dto.product.ProductRequest;
-import com.msv.product.dto.product.ProductResponse;
 
 import java.util.List;
 

@@ -1,14 +1,15 @@
 package com.msv.product.controllers;
 
+import com.libs.msvc.commons.dto.product.ProductResponse;
 import com.msv.product.dto.product.ProductAdminResponse;
 import com.msv.product.dto.product.ProductRequest;
-import com.msv.product.dto.product.ProductResponse;
 import com.msv.product.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/products")
@@ -23,6 +24,17 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
+        return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
+    }
+
+    @GetMapping("/error/{opt}")
+    public ResponseEntity<List<ProductResponse>> getAllProductsWithError(@PathVariable Long opt) throws InterruptedException {
+        if(opt.equals(10L)){
+            throw new IllegalStateException("Simulacion de error");
+        }
+        if(opt.equals(7L)){
+            TimeUnit.SECONDS.sleep(3L);
+        }
         return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
 
