@@ -1,4 +1,4 @@
-package com.msv.product.dto.product;
+package com.libs.msvc.commons.dto.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

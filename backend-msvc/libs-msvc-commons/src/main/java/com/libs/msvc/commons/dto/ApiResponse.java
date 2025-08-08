@@ -1,4 +1,4 @@
-package com.msvc.order.dto;
+package com.libs.msvc.commons.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -23,3 +23,4 @@ public class ApiResponse {
     @JsonFormat(pattern = "yyyy/MM/DD HH:mm:ss")
     private LocalDateTime time;
 }
+
