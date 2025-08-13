@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
     @Transactional(readOnly = true)
     public List<OrderResponse> getUserOrders(Long opt) {
         List<Order> orders = orderRepository.findAll();
-        Map<Long, ProductResponse> products = client.getAllProductsWithError(opt).stream()
+        Map<Long, ProductResponse> products = client.getAllProducts().stream()
                 .collect(Collectors.toMap(ProductResponse::getId, p->p));
         return orders.stream().map(order -> getOrderResponse(order, products)).toList();
     }
